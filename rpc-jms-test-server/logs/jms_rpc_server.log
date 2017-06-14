@@ -1,0 +1,539 @@
+2017-06-13 15:49:45 [main] 510::: INFO  org.springframework.context.support.AbstractApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@257218c4: startup date [Tue Jun 13 15:49:45 CST 2017]; root of context hierarchy
+2017-06-13 15:49:45 [main] 317::: INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-server.xml]
+2017-06-13 15:49:45 [main] 172::: INFO  org.springframework.core.io.support.PropertiesLoaderSupport - Loading properties file from class path resource [jms.properties]
+2017-06-13 15:49:45 [main] 487::: WARN  org.springframework.context.support.AbstractApplicationContext - Exception encountered during context initialization - cancelling refresh attempt
+org.springframework.beans.factory.CannotLoadBeanClassException: Cannot find class [zh.maven.jms_rpc.server.RpcServer] for bean with name 'rpcServer' defined in class path resource [spring-server.xml]; nested exception is java.lang.ClassNotFoundException: zh.maven.jms_rpc.server.RpcServer
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1328)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineTargetType(AbstractAutowireCapableBeanFactory.java:622)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.predictBeanType(AbstractAutowireCapableBeanFactory.java:591)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:1397)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.isFactoryBean(AbstractBeanFactory.java:968)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:735)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:757)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:480)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:139)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:83)
+	at zh.rpc.jms.test.server.ServerTest.main(ServerTest.java:11)
+Caused by: java.lang.ClassNotFoundException: zh.maven.jms_rpc.server.RpcServer
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:366)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:355)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:354)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:425)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:308)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
+	at org.springframework.util.ClassUtils.forName(ClassUtils.java:249)
+	at org.springframework.beans.factory.support.AbstractBeanDefinition.resolveBeanClass(AbstractBeanDefinition.java:395)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doResolveBeanClass(AbstractBeanFactory.java:1349)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveBeanClass(AbstractBeanFactory.java:1320)
+	... 10 more
+2017-06-13 15:52:15 [main] 510::: INFO  org.springframework.context.support.AbstractApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@12caa79c: startup date [Tue Jun 13 15:52:15 CST 2017]; root of context hierarchy
+2017-06-13 15:52:15 [main] 317::: INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-server.xml]
+2017-06-13 15:52:15 [main] 172::: INFO  org.springframework.core.io.support.PropertiesLoaderSupport - Loading properties file from class path resource [jms.properties]
+2017-06-13 15:52:15 [main] 57::: INFO  zh.rpc.jms.server.RpcServer - ready receiver message
+2017-06-13 16:14:54 [main] 510::: INFO  org.springframework.context.support.AbstractApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@65b7ff10: startup date [Tue Jun 13 16:14:54 CST 2017]; root of context hierarchy
+2017-06-13 16:14:54 [main] 317::: INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-server.xml]
+2017-06-13 16:14:55 [main] 172::: INFO  org.springframework.core.io.support.PropertiesLoaderSupport - Loading properties file from class path resource [jms.properties]
+2017-06-13 16:14:55 [main] 57::: INFO  zh.rpc.jms.server.RpcServer - ready receiver message
+2017-06-13 16:14:58 [main] 510::: INFO  org.springframework.context.support.AbstractApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@65b7ff10: startup date [Tue Jun 13 16:14:58 CST 2017]; root of context hierarchy
+2017-06-13 16:14:58 [main] 317::: INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-server.xml]
+2017-06-13 16:14:58 [main] 172::: INFO  org.springframework.core.io.support.PropertiesLoaderSupport - Loading properties file from class path resource [jms.properties]
+2017-06-13 16:14:59 [main] 57::: INFO  zh.rpc.jms.server.RpcServer - ready receiver message
+2017-06-13 16:15:11 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-54884-1497341711184-1:1:1:1:1
+2017-06-13 16:15:19 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-54892-1497341719172-1:1:1:1:1
+2017-06-13 16:15:37 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-54900-1497341736959-1:1:1:1:1
+2017-06-13 16:15:40 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-54903-1497341740181-1:1:1:1:1
+2017-06-13 16:15:43 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-54905-1497341743392-1:1:1:1:1
+2017-06-13 16:15:46 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-54907-1497341746281-1:1:1:1:1
+2017-06-13 16:19:28 [main] 510::: INFO  org.springframework.context.support.AbstractApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@58c671b0: startup date [Tue Jun 13 16:19:28 CST 2017]; root of context hierarchy
+2017-06-13 16:19:28 [main] 317::: INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-server.xml]
+2017-06-13 16:19:28 [main] 172::: INFO  org.springframework.core.io.support.PropertiesLoaderSupport - Loading properties file from class path resource [jms.properties]
+2017-06-13 16:19:29 [main] 57::: INFO  zh.rpc.jms.server.RpcServer - ready receiver message
+2017-06-13 16:19:32 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-54948-1497341972608-1:1:1:1:1
+2017-06-13 17:46:15 [main] 510::: INFO  org.springframework.context.support.AbstractApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@12caa79c: startup date [Tue Jun 13 17:46:15 CST 2017]; root of context hierarchy
+2017-06-13 17:46:16 [main] 317::: INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-server.xml]
+2017-06-13 17:46:16 [main] 172::: INFO  org.springframework.core.io.support.PropertiesLoaderSupport - Loading properties file from class path resource [jms.properties]
+2017-06-13 17:46:16 [main] 57::: INFO  zh.rpc.jms.server.RpcServer - ready receiver message
+2017-06-13 17:46:20 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-62006-1497347180208-1:1:1:1:1
+2017-06-13 17:47:56 [main] 510::: INFO  org.springframework.context.support.AbstractApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@12caa79c: startup date [Tue Jun 13 17:47:56 CST 2017]; root of context hierarchy
+2017-06-13 17:47:56 [main] 317::: INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-server.xml]
+2017-06-13 17:47:56 [main] 172::: INFO  org.springframework.core.io.support.PropertiesLoaderSupport - Loading properties file from class path resource [jms.properties]
+2017-06-13 17:47:56 [main] 57::: INFO  zh.rpc.jms.server.RpcServer - ready receiver message
+2017-06-13 17:47:59 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-62015-1497347278869-1:1:1:1:1
+2017-06-13 17:48:54 [main] 510::: INFO  org.springframework.context.support.AbstractApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@36718c9c: startup date [Tue Jun 13 17:48:54 CST 2017]; root of context hierarchy
+2017-06-13 17:48:54 [main] 317::: INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-server.xml]
+2017-06-13 17:48:54 [main] 172::: INFO  org.springframework.core.io.support.PropertiesLoaderSupport - Loading properties file from class path resource [jms.properties]
+2017-06-13 17:48:55 [main] 57::: INFO  zh.rpc.jms.server.RpcServer - ready receiver message
+2017-06-13 17:48:58 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-62028-1497347338503-1:1:1:1:1
+2017-06-13 17:51:17 [main] 510::: INFO  org.springframework.context.support.AbstractApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@12caa79c: startup date [Tue Jun 13 17:51:17 CST 2017]; root of context hierarchy
+2017-06-13 17:51:17 [main] 317::: INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-server.xml]
+2017-06-13 17:51:18 [main] 172::: INFO  org.springframework.core.io.support.PropertiesLoaderSupport - Loading properties file from class path resource [jms.properties]
+2017-06-13 17:51:18 [main] 57::: INFO  zh.rpc.jms.server.RpcServer - ready receiver message
+2017-06-13 17:51:22 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55717-1497347481835-1:1:1:1:1
+2017-06-13 17:51:22 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55717-1497347481835-1:1:1:2:1
+2017-06-13 17:51:22 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55717-1497347481835-1:1:1:3:1
+2017-06-13 17:51:22 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55717-1497347481835-1:1:1:4:1
+2017-06-13 17:53:48 [main] 510::: INFO  org.springframework.context.support.AbstractApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@65b7ff10: startup date [Tue Jun 13 17:53:48 CST 2017]; root of context hierarchy
+2017-06-13 17:53:48 [main] 317::: INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-server.xml]
+2017-06-13 17:53:49 [main] 172::: INFO  org.springframework.core.io.support.PropertiesLoaderSupport - Loading properties file from class path resource [jms.properties]
+2017-06-13 17:53:49 [main] 57::: INFO  zh.rpc.jms.server.RpcServer - ready receiver message
+2017-06-13 17:53:52 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55729-1497347632239-1:1:1:1:1
+2017-06-13 17:53:53 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55729-1497347632239-1:1:1:2:1
+2017-06-13 17:53:54 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55731-1497347633978-1:1:1:1:1
+2017-06-13 17:53:54 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55729-1497347632239-1:1:1:3:1
+2017-06-13 17:53:55 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55731-1497347633978-1:1:1:2:1
+2017-06-13 17:53:55 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55729-1497347632239-1:1:1:4:1
+2017-06-13 17:53:56 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55731-1497347633978-1:1:1:3:1
+2017-06-13 17:53:57 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55731-1497347633978-1:1:1:4:1
+2017-06-13 17:54:42 [main] 510::: INFO  org.springframework.context.support.AbstractApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@36c1fc67: startup date [Tue Jun 13 17:54:42 CST 2017]; root of context hierarchy
+2017-06-13 17:54:42 [main] 317::: INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-server.xml]
+2017-06-13 17:54:42 [main] 172::: INFO  org.springframework.core.io.support.PropertiesLoaderSupport - Loading properties file from class path resource [jms.properties]
+2017-06-13 17:54:43 [main] 57::: INFO  zh.rpc.jms.server.RpcServer - ready receiver message
+2017-06-13 17:54:50 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55736-1497347689945-1:1:1:1:1
+2017-06-13 17:54:51 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55736-1497347689945-1:1:1:2:1
+2017-06-13 17:54:51 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55738-1497347691573-1:1:1:1:1
+2017-06-13 17:55:07 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55741-1497347707603-1:1:1:1:1
+2017-06-13 17:55:08 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55736-1497347689945-1:1:1:3:1
+2017-06-13 17:55:18 [main] 510::: INFO  org.springframework.context.support.AbstractApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@4c520758: startup date [Tue Jun 13 17:55:18 CST 2017]; root of context hierarchy
+2017-06-13 17:55:18 [main] 317::: INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-server.xml]
+2017-06-13 17:55:19 [main] 172::: INFO  org.springframework.core.io.support.PropertiesLoaderSupport - Loading properties file from class path resource [jms.properties]
+2017-06-13 17:55:19 [main] 57::: INFO  zh.rpc.jms.server.RpcServer - ready receiver message
+2017-06-13 17:55:22 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55748-1497347722099-1:1:1:1:1
+2017-06-13 17:55:23 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55748-1497347722099-1:1:1:2:1
+2017-06-13 17:55:23 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55752-1497347723557-1:1:1:1:1
+2017-06-13 17:55:24 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55748-1497347722099-1:1:1:3:1
+2017-06-13 17:55:24 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55752-1497347723557-1:1:1:2:1
+2017-06-13 17:55:25 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55754-1497347724741-1:1:1:1:1
+2017-06-13 17:55:25 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55748-1497347722099-1:1:1:4:1
+2017-06-13 17:55:25 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55752-1497347723557-1:1:1:3:1
+2017-06-13 17:55:26 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55754-1497347724741-1:1:1:2:1
+2017-06-13 17:55:26 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55752-1497347723557-1:1:1:4:1
+2017-06-13 17:55:27 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55754-1497347724741-1:1:1:3:1
+2017-06-13 17:55:27 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55756-1497347727120-1:1:1:1:1
+2017-06-13 17:55:28 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55754-1497347724741-1:1:1:4:1
+2017-06-13 17:55:28 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55756-1497347727120-1:1:1:2:1
+2017-06-13 17:55:29 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55756-1497347727120-1:1:1:3:1
+2017-06-13 17:55:30 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55756-1497347727120-1:1:1:4:1
+2017-06-13 17:55:59 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55759-1497347759391-1:1:1:1:1
+2017-06-13 17:56:00 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55759-1497347759391-1:1:1:2:1
+2017-06-13 17:56:00 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55761-1497347760684-1:1:1:1:1
+2017-06-13 17:56:01 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55759-1497347759391-1:1:1:3:1
+2017-06-13 17:56:02 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55761-1497347760684-1:1:1:2:1
+2017-06-13 17:56:02 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55763-1497347762560-1:1:1:1:1
+2017-06-13 17:56:02 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55759-1497347759391-1:1:1:4:1
+2017-06-13 17:56:03 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55761-1497347760684-1:1:1:3:1
+2017-06-13 17:56:03 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55763-1497347762560-1:1:1:2:1
+2017-06-13 17:56:04 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55761-1497347760684-1:1:1:4:1
+2017-06-13 17:56:05 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55763-1497347762560-1:1:1:3:1
+2017-06-13 17:56:06 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55763-1497347762560-1:1:1:4:1
+2017-06-13 17:56:18 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55765-1497347777856-1:1:1:1:1
+2017-06-13 17:56:19 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55765-1497347777856-1:1:1:2:1
+2017-06-13 17:56:19 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55767-1497347779094-1:1:1:1:1
+2017-06-13 17:56:20 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55765-1497347777856-1:1:1:3:1
+2017-06-13 17:56:20 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55767-1497347779094-1:1:1:2:1
+2017-06-13 17:56:20 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55769-1497347780344-1:1:1:1:1
+2017-06-13 17:56:21 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55765-1497347777856-1:1:1:4:1
+2017-06-13 17:56:21 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55767-1497347779094-1:1:1:3:1
+2017-06-13 17:56:21 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55769-1497347780344-1:1:1:2:1
+2017-06-13 17:56:22 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55767-1497347779094-1:1:1:4:1
+2017-06-13 17:56:22 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55769-1497347780344-1:1:1:3:1
+2017-06-13 17:56:23 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55769-1497347780344-1:1:1:4:1
+2017-06-13 17:58:15 [main] 510::: INFO  org.springframework.context.support.AbstractApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@4c520758: startup date [Tue Jun 13 17:58:15 CST 2017]; root of context hierarchy
+2017-06-13 17:58:15 [main] 317::: INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-server.xml]
+2017-06-13 17:58:16 [main] 172::: INFO  org.springframework.core.io.support.PropertiesLoaderSupport - Loading properties file from class path resource [jms.properties]
+2017-06-13 17:58:16 [main] 57::: INFO  zh.rpc.jms.server.RpcServer - ready receiver message
+2017-06-13 17:58:28 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:1:1
+2017-06-13 17:58:28 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:2:1
+2017-06-13 17:58:29 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:3:1
+2017-06-13 17:58:29 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:4:1
+2017-06-13 17:58:29 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:5:1
+2017-06-13 17:58:29 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:6:1
+2017-06-13 17:58:29 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:7:1
+2017-06-13 17:58:29 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:8:1
+2017-06-13 17:58:29 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:9:1
+2017-06-13 17:58:30 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:10:1
+2017-06-13 17:58:30 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:11:1
+2017-06-13 17:58:30 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:12:1
+2017-06-13 17:58:30 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:13:1
+2017-06-13 17:58:30 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:14:1
+2017-06-13 17:58:31 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:15:1
+2017-06-13 17:58:31 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:16:1
+2017-06-13 17:58:31 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:17:1
+2017-06-13 17:58:31 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:18:1
+2017-06-13 17:58:31 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:1:1
+2017-06-13 17:58:31 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:19:1
+2017-06-13 17:58:31 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:2:1
+2017-06-13 17:58:32 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:20:1
+2017-06-13 17:58:32 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:3:1
+2017-06-13 17:58:32 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:21:1
+2017-06-13 17:58:32 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:4:1
+2017-06-13 17:58:32 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:22:1
+2017-06-13 17:58:32 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:5:1
+2017-06-13 17:58:32 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:23:1
+2017-06-13 17:58:32 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:6:1
+2017-06-13 17:58:32 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:24:1
+2017-06-13 17:58:32 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:7:1
+2017-06-13 17:58:32 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:25:1
+2017-06-13 17:58:32 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:8:1
+2017-06-13 17:58:33 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:26:1
+2017-06-13 17:58:33 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:9:1
+2017-06-13 17:58:33 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:27:1
+2017-06-13 17:58:33 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:10:1
+2017-06-13 17:58:33 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:28:1
+2017-06-13 17:58:33 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:11:1
+2017-06-13 17:58:33 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:29:1
+2017-06-13 17:58:33 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:12:1
+2017-06-13 17:58:33 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:30:1
+2017-06-13 17:58:33 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:13:1
+2017-06-13 17:58:33 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:31:1
+2017-06-13 17:58:33 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:14:1
+2017-06-13 17:58:33 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:32:1
+2017-06-13 17:58:33 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:15:1
+2017-06-13 17:58:34 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:33:1
+2017-06-13 17:58:34 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:16:1
+2017-06-13 17:58:34 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:34:1
+2017-06-13 17:58:34 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:17:1
+2017-06-13 17:58:34 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:35:1
+2017-06-13 17:58:34 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:18:1
+2017-06-13 17:58:34 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:36:1
+2017-06-13 17:58:34 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:19:1
+2017-06-13 17:58:34 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:37:1
+2017-06-13 17:58:34 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:20:1
+2017-06-13 17:58:34 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:38:1
+2017-06-13 17:58:34 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:21:1
+2017-06-13 17:58:34 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:39:1
+2017-06-13 17:58:34 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:22:1
+2017-06-13 17:58:35 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:40:1
+2017-06-13 17:58:35 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:23:1
+2017-06-13 17:58:35 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:41:1
+2017-06-13 17:58:35 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:24:1
+2017-06-13 17:58:35 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:42:1
+2017-06-13 17:58:35 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:25:1
+2017-06-13 17:58:35 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:43:1
+2017-06-13 17:58:35 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:26:1
+2017-06-13 17:58:35 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:44:1
+2017-06-13 17:58:35 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:27:1
+2017-06-13 17:58:36 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:45:1
+2017-06-13 17:58:36 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:28:1
+2017-06-13 17:58:36 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:46:1
+2017-06-13 17:58:36 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:29:1
+2017-06-13 17:58:36 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:47:1
+2017-06-13 17:58:36 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:30:1
+2017-06-13 17:58:36 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:48:1
+2017-06-13 17:58:36 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:31:1
+2017-06-13 17:58:36 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:49:1
+2017-06-13 17:58:36 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:32:1
+2017-06-13 17:58:36 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:50:1
+2017-06-13 17:58:36 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:33:1
+2017-06-13 17:58:37 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:51:1
+2017-06-13 17:58:37 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:34:1
+2017-06-13 17:58:37 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:52:1
+2017-06-13 17:58:37 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:35:1
+2017-06-13 17:58:37 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:53:1
+2017-06-13 17:58:37 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:36:1
+2017-06-13 17:58:37 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:54:1
+2017-06-13 17:58:37 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:37:1
+2017-06-13 17:58:37 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:55:1
+2017-06-13 17:58:37 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:38:1
+2017-06-13 17:58:37 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:56:1
+2017-06-13 17:58:37 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:39:1
+2017-06-13 17:58:37 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:57:1
+2017-06-13 17:58:38 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:40:1
+2017-06-13 17:58:38 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:58:1
+2017-06-13 17:58:38 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:41:1
+2017-06-13 17:58:38 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:59:1
+2017-06-13 17:58:38 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:42:1
+2017-06-13 17:58:38 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:60:1
+2017-06-13 17:58:38 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:43:1
+2017-06-13 17:58:38 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:61:1
+2017-06-13 17:58:38 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:44:1
+2017-06-13 17:58:38 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:62:1
+2017-06-13 17:58:38 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:45:1
+2017-06-13 17:58:38 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:63:1
+2017-06-13 17:58:38 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:46:1
+2017-06-13 17:58:38 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:64:1
+2017-06-13 17:58:38 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:47:1
+2017-06-13 17:58:39 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:65:1
+2017-06-13 17:58:39 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:48:1
+2017-06-13 17:58:39 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:66:1
+2017-06-13 17:58:39 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:49:1
+2017-06-13 17:58:39 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:67:1
+2017-06-13 17:58:39 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:50:1
+2017-06-13 17:58:39 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:68:1
+2017-06-13 17:58:39 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:51:1
+2017-06-13 17:58:39 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:69:1
+2017-06-13 17:58:39 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:52:1
+2017-06-13 17:58:40 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:70:1
+2017-06-13 17:58:40 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:53:1
+2017-06-13 17:58:40 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:71:1
+2017-06-13 17:58:40 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:54:1
+2017-06-13 17:58:40 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:72:1
+2017-06-13 17:58:40 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:55:1
+2017-06-13 17:58:40 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:73:1
+2017-06-13 17:58:40 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:56:1
+2017-06-13 17:58:40 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:74:1
+2017-06-13 17:58:41 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:57:1
+2017-06-13 17:58:41 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:75:1
+2017-06-13 17:58:41 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:58:1
+2017-06-13 17:58:41 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:76:1
+2017-06-13 17:58:41 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:59:1
+2017-06-13 17:58:41 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:77:1
+2017-06-13 17:58:41 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:60:1
+2017-06-13 17:58:41 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:78:1
+2017-06-13 17:58:41 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:61:1
+2017-06-13 17:58:41 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:79:1
+2017-06-13 17:58:41 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:62:1
+2017-06-13 17:58:41 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:80:1
+2017-06-13 17:58:41 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:63:1
+2017-06-13 17:58:41 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:81:1
+2017-06-13 17:58:42 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:64:1
+2017-06-13 17:58:42 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:82:1
+2017-06-13 17:58:42 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:65:1
+2017-06-13 17:58:42 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:83:1
+2017-06-13 17:58:42 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:66:1
+2017-06-13 17:58:42 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:84:1
+2017-06-13 17:58:42 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:67:1
+2017-06-13 17:58:42 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:85:1
+2017-06-13 17:58:42 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:68:1
+2017-06-13 17:58:42 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:86:1
+2017-06-13 17:58:42 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:69:1
+2017-06-13 17:58:42 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:87:1
+2017-06-13 17:58:42 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:70:1
+2017-06-13 17:58:43 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:88:1
+2017-06-13 17:58:43 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:71:1
+2017-06-13 17:58:43 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:89:1
+2017-06-13 17:58:43 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:72:1
+2017-06-13 17:58:43 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:90:1
+2017-06-13 17:58:43 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:73:1
+2017-06-13 17:58:43 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:91:1
+2017-06-13 17:58:43 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:74:1
+2017-06-13 17:58:43 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:92:1
+2017-06-13 17:58:43 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:75:1
+2017-06-13 17:58:43 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:93:1
+2017-06-13 17:58:43 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:76:1
+2017-06-13 17:58:43 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:94:1
+2017-06-13 17:58:43 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:77:1
+2017-06-13 17:58:44 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:95:1
+2017-06-13 17:58:44 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:78:1
+2017-06-13 17:58:44 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:96:1
+2017-06-13 17:58:44 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:79:1
+2017-06-13 17:58:44 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:97:1
+2017-06-13 17:58:44 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:80:1
+2017-06-13 17:58:44 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:98:1
+2017-06-13 17:58:44 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:81:1
+2017-06-13 17:58:44 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:99:1
+2017-06-13 17:58:44 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:82:1
+2017-06-13 17:58:44 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:100:1
+2017-06-13 17:58:44 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:83:1
+2017-06-13 17:58:44 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:101:1
+2017-06-13 17:58:45 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:84:1
+2017-06-13 17:58:45 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:102:1
+2017-06-13 17:58:45 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:85:1
+2017-06-13 17:58:45 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:103:1
+2017-06-13 17:58:45 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:86:1
+2017-06-13 17:58:45 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:104:1
+2017-06-13 17:58:45 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:87:1
+2017-06-13 17:58:45 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:105:1
+2017-06-13 17:58:45 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:88:1
+2017-06-13 17:58:45 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:106:1
+2017-06-13 17:58:46 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:89:1
+2017-06-13 17:58:46 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:107:1
+2017-06-13 17:58:46 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:90:1
+2017-06-13 17:58:46 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:108:1
+2017-06-13 17:58:46 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:91:1
+2017-06-13 17:58:46 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:109:1
+2017-06-13 17:58:46 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:92:1
+2017-06-13 17:58:46 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:110:1
+2017-06-13 17:58:46 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:93:1
+2017-06-13 17:58:46 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:111:1
+2017-06-13 17:58:46 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:94:1
+2017-06-13 17:58:46 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:112:1
+2017-06-13 17:58:47 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:95:1
+2017-06-13 17:58:47 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:113:1
+2017-06-13 17:58:47 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:96:1
+2017-06-13 17:58:47 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:114:1
+2017-06-13 17:58:47 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:97:1
+2017-06-13 17:58:47 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:115:1
+2017-06-13 17:58:47 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:98:1
+2017-06-13 17:58:47 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:116:1
+2017-06-13 17:58:47 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:99:1
+2017-06-13 17:58:48 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:117:1
+2017-06-13 17:58:48 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:100:1
+2017-06-13 17:58:48 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:118:1
+2017-06-13 17:58:48 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:101:1
+2017-06-13 17:58:48 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:119:1
+2017-06-13 17:58:48 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:102:1
+2017-06-13 17:58:48 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:120:1
+2017-06-13 17:58:48 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:103:1
+2017-06-13 17:58:48 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:121:1
+2017-06-13 17:58:48 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:104:1
+2017-06-13 17:58:48 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:122:1
+2017-06-13 17:58:48 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:105:1
+2017-06-13 17:58:49 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:123:1
+2017-06-13 17:58:49 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:106:1
+2017-06-13 17:58:49 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:124:1
+2017-06-13 17:58:49 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:107:1
+2017-06-13 17:58:49 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:125:1
+2017-06-13 17:58:49 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:108:1
+2017-06-13 17:58:49 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:126:1
+2017-06-13 17:58:49 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:109:1
+2017-06-13 17:58:49 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:127:1
+2017-06-13 17:58:49 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:110:1
+2017-06-13 17:58:49 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:128:1
+2017-06-13 17:58:50 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:111:1
+2017-06-13 17:58:50 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:129:1
+2017-06-13 17:58:50 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:112:1
+2017-06-13 17:58:50 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:130:1
+2017-06-13 17:58:50 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:113:1
+2017-06-13 17:58:50 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:131:1
+2017-06-13 17:58:50 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:114:1
+2017-06-13 17:58:50 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:132:1
+2017-06-13 17:58:50 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:115:1
+2017-06-13 17:58:51 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:133:1
+2017-06-13 17:58:51 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:116:1
+2017-06-13 17:58:51 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:134:1
+2017-06-13 17:58:51 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:117:1
+2017-06-13 17:58:51 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:135:1
+2017-06-13 17:58:51 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:118:1
+2017-06-13 17:58:51 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:136:1
+2017-06-13 17:58:51 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:119:1
+2017-06-13 17:58:51 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:137:1
+2017-06-13 17:58:51 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:120:1
+2017-06-13 17:58:51 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:138:1
+2017-06-13 17:58:52 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:121:1
+2017-06-13 17:58:52 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:139:1
+2017-06-13 17:58:52 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:122:1
+2017-06-13 17:58:52 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:140:1
+2017-06-13 17:58:52 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:123:1
+2017-06-13 17:58:52 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:141:1
+2017-06-13 17:58:52 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:124:1
+2017-06-13 17:58:52 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:142:1
+2017-06-13 17:58:52 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:125:1
+2017-06-13 17:58:52 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:143:1
+2017-06-13 17:58:52 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:126:1
+2017-06-13 17:58:53 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:144:1
+2017-06-13 17:58:53 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:127:1
+2017-06-13 17:58:53 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:145:1
+2017-06-13 17:58:53 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:128:1
+2017-06-13 17:58:53 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:146:1
+2017-06-13 17:58:53 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:129:1
+2017-06-13 17:58:53 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:147:1
+2017-06-13 17:58:53 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:130:1
+2017-06-13 17:58:54 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:148:1
+2017-06-13 17:58:54 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:131:1
+2017-06-13 17:58:54 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:149:1
+2017-06-13 17:58:54 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:132:1
+2017-06-13 17:58:54 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:150:1
+2017-06-13 17:58:54 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:133:1
+2017-06-13 17:58:54 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:151:1
+2017-06-13 17:58:54 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:134:1
+2017-06-13 17:58:54 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:152:1
+2017-06-13 17:58:54 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:135:1
+2017-06-13 17:58:54 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:153:1
+2017-06-13 17:58:55 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:136:1
+2017-06-13 17:58:55 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:154:1
+2017-06-13 17:58:55 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:137:1
+2017-06-13 17:58:55 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:155:1
+2017-06-13 17:58:55 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:138:1
+2017-06-13 17:58:55 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:156:1
+2017-06-13 17:58:55 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:139:1
+2017-06-13 17:58:55 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:157:1
+2017-06-13 17:58:55 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:140:1
+2017-06-13 17:58:56 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:158:1
+2017-06-13 17:58:56 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:141:1
+2017-06-13 17:58:56 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:159:1
+2017-06-13 17:58:56 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:142:1
+2017-06-13 17:58:56 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:160:1
+2017-06-13 17:58:56 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:143:1
+2017-06-13 17:58:56 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:161:1
+2017-06-13 17:58:57 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:144:1
+2017-06-13 17:58:57 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:162:1
+2017-06-13 17:58:57 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:145:1
+2017-06-13 17:58:57 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:163:1
+2017-06-13 17:58:57 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:146:1
+2017-06-13 17:58:57 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:164:1
+2017-06-13 17:58:57 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:147:1
+2017-06-13 17:58:57 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:165:1
+2017-06-13 17:58:57 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:148:1
+2017-06-13 17:58:57 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:166:1
+2017-06-13 17:58:57 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:149:1
+2017-06-13 17:58:58 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:167:1
+2017-06-13 17:58:58 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:150:1
+2017-06-13 17:58:58 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:168:1
+2017-06-13 17:58:58 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:151:1
+2017-06-13 17:58:58 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:169:1
+2017-06-13 17:58:58 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:152:1
+2017-06-13 17:58:58 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:170:1
+2017-06-13 17:58:58 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:153:1
+2017-06-13 17:58:58 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:171:1
+2017-06-13 17:58:58 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:154:1
+2017-06-13 17:58:58 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:172:1
+2017-06-13 17:58:59 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:155:1
+2017-06-13 17:58:59 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:173:1
+2017-06-13 17:58:59 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:156:1
+2017-06-13 17:58:59 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:174:1
+2017-06-13 17:58:59 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:157:1
+2017-06-13 17:58:59 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:175:1
+2017-06-13 17:58:59 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:158:1
+2017-06-13 17:58:59 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:176:1
+2017-06-13 17:58:59 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:159:1
+2017-06-13 17:58:59 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:177:1
+2017-06-13 17:59:00 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:160:1
+2017-06-13 17:59:00 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:178:1
+2017-06-13 17:59:00 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:161:1
+2017-06-13 17:59:00 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:179:1
+2017-06-13 17:59:00 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:162:1
+2017-06-13 17:59:00 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:180:1
+2017-06-13 17:59:00 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:163:1
+2017-06-13 17:59:00 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:181:1
+2017-06-13 17:59:00 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:164:1
+2017-06-13 17:59:00 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:182:1
+2017-06-13 17:59:00 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:165:1
+2017-06-13 17:59:01 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:183:1
+2017-06-13 17:59:01 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:166:1
+2017-06-13 17:59:01 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:184:1
+2017-06-13 17:59:01 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:167:1
+2017-06-13 17:59:01 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:185:1
+2017-06-13 17:59:01 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:168:1
+2017-06-13 17:59:01 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:186:1
+2017-06-13 17:59:01 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:169:1
+2017-06-13 17:59:02 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:187:1
+2017-06-13 17:59:02 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:170:1
+2017-06-13 17:59:02 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:188:1
+2017-06-13 17:59:02 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:171:1
+2017-06-13 17:59:02 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:189:1
+2017-06-13 17:59:02 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:172:1
+2017-06-13 17:59:02 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:190:1
+2017-06-13 17:59:02 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:173:1
+2017-06-13 17:59:02 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:191:1
+2017-06-13 17:59:03 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:174:1
+2017-06-13 17:59:03 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:192:1
+2017-06-13 17:59:03 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:175:1
+2017-06-13 17:59:03 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:193:1
+2017-06-13 17:59:03 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:176:1
+2017-06-13 17:59:03 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:194:1
+2017-06-13 17:59:03 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:177:1
+2017-06-13 17:59:03 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:195:1
+2017-06-13 17:59:03 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:178:1
+2017-06-13 17:59:03 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55784-1497347908457-1:1:1:196:1
+2017-06-13 17:59:04 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:179:1
+2017-06-13 17:59:04 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:180:1
+2017-06-13 17:59:04 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:181:1
+2017-06-13 17:59:04 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:182:1
+2017-06-13 17:59:04 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:183:1
+2017-06-13 17:59:04 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:184:1
+2017-06-13 17:59:05 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:185:1
+2017-06-13 17:59:05 [ActiveMQ Session Task-2] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55786-1497347911472-1:1:1:186:1
+2017-06-13 18:00:15 [main] 510::: INFO  org.springframework.context.support.AbstractApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1d60498d: startup date [Tue Jun 13 18:00:15 CST 2017]; root of context hierarchy
+2017-06-13 18:00:15 [main] 317::: INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-server.xml]
+2017-06-13 18:00:15 [main] 172::: INFO  org.springframework.core.io.support.PropertiesLoaderSupport - Loading properties file from class path resource [jms.properties]
+2017-06-13 18:00:15 [main] 57::: INFO  zh.rpc.jms.server.RpcServer - ready receiver message
+2017-06-13 18:00:24 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55801-1497348024093-1:1:1:1:1
+2017-06-13 18:00:24 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55801-1497348024093-1:1:1:2:1
+2017-06-13 18:00:28 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55805-1497348028326-1:1:1:1:1
+2017-06-13 18:00:49 [main] 510::: INFO  org.springframework.context.support.AbstractApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1c7cd70c: startup date [Tue Jun 13 18:00:49 CST 2017]; root of context hierarchy
+2017-06-13 18:00:50 [main] 317::: INFO  org.springframework.beans.factory.xml.XmlBeanDefinitionReader - Loading XML bean definitions from class path resource [spring-server.xml]
+2017-06-13 18:00:50 [main] 172::: INFO  org.springframework.core.io.support.PropertiesLoaderSupport - Loading properties file from class path resource [jms.properties]
+2017-06-13 18:00:50 [main] 57::: INFO  zh.rpc.jms.server.RpcServer - ready receiver message
+2017-06-13 18:00:56 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55812-1497348056290-1:1:1:1:1
+2017-06-13 18:00:56 [ActiveMQ Session Task-1] 39::: INFO  zh.rpc.jms.server.RpcMessageListener - receiver message : ID:NJD9YZGJ2-PC-55812-1497348056290-1:1:1:2:1

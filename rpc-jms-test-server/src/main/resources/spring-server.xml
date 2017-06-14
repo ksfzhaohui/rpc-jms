@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:component-scan base-package="zh.rpc.jms.test.server.impl" />
+
+	<context:property-placeholder location="classpath:jms.properties" />
+
+	<bean id="rpcServer" class="zh.rpc.jms.server.RpcServer">
+		<constructor-arg name="rpcFactory" value="${rpc.rpc_factory}" />
+		<constructor-arg name="rpcRequest" value="${rpc.rpc_request}" />
+	</bean>
+
+</beans>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:property-placeholder location="classpath:jms.properties" />
+
+	<bean id="rpcProxy" class="zh.rpc.jms.client.RpcClient">
+		<constructor-arg name="rpcFactory" value="${rpc.rpc_factory}" />
+		<constructor-arg name="rpcRequest" value="${rpc.rpc_request}" />
+		<constructor-arg name="rpcResponse" value="${rpc.rpc_response}" />
+	</bean>
+
+</beans>
