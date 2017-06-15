@@ -20,6 +20,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
+@Deprecated
 public class RpcServer implements ApplicationContextAware, InitializingBean {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(RpcServer.class);

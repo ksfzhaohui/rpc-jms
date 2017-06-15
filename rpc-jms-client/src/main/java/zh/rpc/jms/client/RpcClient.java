@@ -29,6 +29,7 @@ import zh.rpc.jms.common.util.SerializationUtil;
  * @author zhaohui
  *
  */
+@Deprecated
 public class RpcClient {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(RpcClient.class);
