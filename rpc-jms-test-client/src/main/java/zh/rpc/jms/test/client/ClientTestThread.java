@@ -3,7 +3,6 @@ package zh.rpc.jms.test.client;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import zh.rpc.jms.client.RpcClient;
 import zh.rpc.jms.test.api.IHelloService;
 
 public class ClientTestThread {
@@ -12,9 +11,8 @@ public class ClientTestThread {
 
 	public static void main(String[] args) throws Exception {
 		context = new ClassPathXmlApplicationContext("spring-client.xml");
-		RpcClient rpcProxy = context.getBean(RpcClient.class);
+		final IHelloService helloService = (IHelloService) context.getBean("rpcService");
 
-		final IHelloService helloService = rpcProxy.create(IHelloService.class);
 		for (int i = 0; i < 100; i++) {
 			final String message = "hello" + i;
 			new Thread(new Runnable() {

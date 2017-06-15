@@ -1,21 +1,15 @@
 package zh.rpc.jms.server;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.Executor;
 
-import javax.jms.BytesMessage;
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.JMSException;
-import javax.jms.Message;
 import javax.jms.MessageConsumer;
-import javax.jms.MessageListener;
-import javax.jms.MessageProducer;
 import javax.jms.Queue;
 import javax.jms.Session;
 
@@ -26,11 +20,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-import zh.rpc.jms.common.bean.RpcRequest;
-import zh.rpc.jms.common.bean.RpcResponse;
 import zh.rpc.jms.common.util.ConnectionFactoryUtils;
-import zh.rpc.jms.common.util.JmsUtils;
-import zh.rpc.jms.common.util.SerializationUtil;
 
 public class RpcMessageListenerContainer implements InitializingBean, ApplicationContextAware {
 
@@ -92,6 +82,11 @@ public class RpcMessageListenerContainer implements InitializingBean, Applicatio
 		}
 	}
 
+	/**
+	 * 服务器启动初始化
+	 * 
+	 * @throws JMSException
+	 */
 	protected void doInitialize() throws JMSException {
 		try {
 			establishSharedConnection();
@@ -113,6 +108,11 @@ public class RpcMessageListenerContainer implements InitializingBean, Applicatio
 		return getConnectionFactory().createConnection();
 	}
 
+	/**
+	 * 初始化consumer
+	 * 
+	 * @throws JMSException
+	 */
 	protected void initializeConsumers() throws JMSException {
 		if (this.consumers == null) {
 			this.sessions = new HashSet<Session>(this.concurrentConsumers);
@@ -131,140 +131,17 @@ public class RpcMessageListenerContainer implements InitializingBean, Applicatio
 		return con.createSession(false, Session.AUTO_ACKNOWLEDGE);
 	}
 
+	/**
+	 * 对Consumer设置监听
+	 * 
+	 * @param session
+	 * @return
+	 * @throws JMSException
+	 */
 	protected MessageConsumer createListenerConsumer(final Session session) throws JMSException {
 		MessageConsumer consumer = session.createConsumer(destination);
-		if (this.taskExecutor != null) {
-			consumer.setMessageListener(new MessageListener() {
-				public void onMessage(final Message message) {
-					taskExecutor.execute(new Runnable() {
-						public void run() {
-							executeListener(session, message);
-						}
-					});
-				}
-			});
-		} else {
-			consumer.setMessageListener(new MessageListener() {
-				public void onMessage(Message message) {
-					executeListener(session, message);
-				}
-			});
-		}
-
+		consumer.setMessageListener(new RpcMessageListener(session, taskExecutor, serviceMap));
 		return consumer;
-	}
-
-	protected void executeListener(Session session, Message message) {
-		try {
-			RpcRequest rpcRequest = getRpcRequest(message);
-			RpcResponse rpcResponse = invokeAndCreateResult(rpcRequest);
-			writeResponseMessage(session, message, rpcResponse);
-		} catch (Throwable ex) {
-			handleListenerException(ex);
-		}
-	}
-
-	/**
-	 * 回复客户端消息
-	 * 
-	 * @param session
-	 * @param requestMessage
-	 * @param rpcResponse
-	 * @throws JMSException
-	 */
-	private void writeResponseMessage(Session session, Message requestMessage, RpcResponse rpcResponse)
-			throws JMSException {
-		Message response = createResponseMessage(session, requestMessage, rpcResponse);
-		MessageProducer producer = session.createProducer(requestMessage.getJMSReplyTo());
-		try {
-			producer.send(response);
-		} finally {
-			JmsUtils.closeMessageProducer(producer);
-		}
-	}
-
-	private RpcResponse invokeAndCreateResult(RpcRequest rpcRequest) {
-		RpcResponse rpcResponse = new RpcResponse();
-		rpcResponse.setRequestId(rpcRequest.getRequestId());
-		try {
-			rpcResponse.setResult(invoke(rpcRequest));
-		} catch (Exception ex) {
-			rpcResponse.setException(ex);
-		}
-		return rpcResponse;
-	}
-
-	/**
-	 * 反射调用服务器本地方法
-	 * 
-	 * @param rpcRequest
-	 * @return
-	 * @throws NoSuchMethodException
-	 * @throws SecurityException
-	 * @throws IllegalAccessException
-	 * @throws IllegalArgumentException
-	 * @throws InvocationTargetException
-	 */
-	private Object invoke(RpcRequest rpcRequest) throws NoSuchMethodException, SecurityException,
-			IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-		String serviceName = rpcRequest.getInterfaceName();
-		String serviceVersion = rpcRequest.getServiceVersion();
-		if (serviceVersion != null && !serviceVersion.equals("")) {
-			serviceName += "-" + serviceVersion;
-		}
-		Object serviceBean = serviceMap.get(serviceName);
-		if (serviceBean == null) {
-			throw new RuntimeException(String.format("can not find service bean by key: %s", serviceName));
-		}
-
-		Class<?> serviceClass = serviceBean.getClass();
-		String methodName = rpcRequest.getMethodName();
-		Class<?>[] parameterTypes = rpcRequest.getParameterTypes();
-		Object[] parameters = rpcRequest.getParameters();
-
-		Method method = serviceClass.getMethod(methodName, parameterTypes);
-		method.setAccessible(true);
-		return method.invoke(serviceBean, parameters);
-	}
-
-	/**
-	 * 反序列化Message为RpcRequest
-	 * 
-	 * @param message
-	 * @return
-	 * @throws JMSException
-	 */
-	private RpcRequest getRpcRequest(Message message) throws JMSException {
-		BytesMessage byteMessage = (BytesMessage) message;
-		byte messByte[] = new byte[(int) byteMessage.getBodyLength()];
-		byteMessage.readBytes(messByte);
-		RpcRequest rpcRequest = SerializationUtil.deserialize(messByte, RpcRequest.class);
-		return rpcRequest;
-	}
-
-	/**
-	 * 创建回复Message
-	 * 
-	 * @param session
-	 * @param requestMessage
-	 * @param rpcResponse
-	 * @return
-	 * @throws JMSException
-	 */
-	private Message createResponseMessage(Session session, Message requestMessage, RpcResponse rpcResponse)
-			throws JMSException {
-		BytesMessage responeByte = session.createBytesMessage();
-		responeByte.writeBytes(SerializationUtil.serialize(rpcResponse));
-		String correlation = requestMessage.getJMSCorrelationID();
-		if (correlation == null) {
-			correlation = requestMessage.getJMSMessageID();
-		}
-		responeByte.setJMSCorrelationID(correlation);
-		return responeByte;
-	}
-
-	protected void handleListenerException(Throwable ex) {
-		// 待实现
 	}
 
 	protected void startSharedConnection() throws JMSException {
