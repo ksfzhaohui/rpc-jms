@@ -3,7 +3,6 @@ package zh.rpc.jms.test.client;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import zh.rpc.jms.client.RpcClient;
 import zh.rpc.jms.test.api.IHelloService;
 import zh.rpc.jms.test.api.Person;
 
@@ -13,9 +12,7 @@ public class ClientTest {
 
 	public static void main(String[] args) throws Exception {
 		context = new ClassPathXmlApplicationContext("spring-client.xml");
-		RpcClient rpcProxy = context.getBean(RpcClient.class);
-
-		IHelloService helloService = rpcProxy.create(IHelloService.class);
+		IHelloService helloService = (IHelloService) context.getBean("rpcService");
 		String result = helloService.hello("World");
 		System.out.println(result);
 

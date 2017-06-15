@@ -1,9 +1,11 @@
 package zh.rpc.jms.client;
 
+import org.springframework.beans.factory.FactoryBean;
+
 import zh.rpc.jms.client.proxy.ProxyFactory;
 import zh.rpc.jms.client.remote.JmsInvoker;
 
-public class RpcProxyBean extends JmsInvoker {
+public class RpcProxyBean extends JmsInvoker implements FactoryBean<Object> {
 
 	private Class<?> serviceInterface;
 
@@ -42,4 +44,15 @@ public class RpcProxyBean extends JmsInvoker {
 		this.serviceVesion = serviceVesion;
 	}
 
+	public Object getObject() {
+		return this.serviceProxy;
+	}
+
+	public Class<?> getObjectType() {
+		return this.serviceInterface;
+	}
+
+	public boolean isSingleton() {
+		return true;
+	}
 }

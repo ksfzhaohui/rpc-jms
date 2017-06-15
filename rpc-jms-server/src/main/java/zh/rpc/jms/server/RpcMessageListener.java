@@ -18,6 +18,7 @@ import zh.rpc.jms.common.bean.RpcRequest;
 import zh.rpc.jms.common.bean.RpcResponse;
 import zh.rpc.jms.common.util.SerializationUtil;
 
+@Deprecated
 public class RpcMessageListener implements MessageListener {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(RpcMessageListener.class);
