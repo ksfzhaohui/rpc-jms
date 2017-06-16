@@ -1,4 +1,4 @@
-package zh.rpc.jms.server;
+package zh.rpc.jms.server.listener;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.concurrent.Executor;
 
 import javax.jms.Connection;
-import javax.jms.ConnectionFactory;
+import javax.jms.ExceptionListener;
 import javax.jms.JMSException;
 import javax.jms.MessageConsumer;
 import javax.jms.Queue;
@@ -16,19 +16,15 @@ import javax.jms.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 
+import zh.rpc.jms.common.exception.RpcJmsException;
 import zh.rpc.jms.common.util.ConnectionFactoryUtils;
+import zh.rpc.jms.server.RpcService;
 
-public class RpcMessageListenerContainer implements InitializingBean, ApplicationContextAware {
+public class RpcMessageListenerContainer extends AbstractListeningContainer implements ExceptionListener {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(RpcMessageListenerContainer.class);
-
-	private Connection sharedConnection;
-
-	private ConnectionFactory connectionFactory;
 
 	private Queue destination;
 
@@ -62,7 +58,7 @@ public class RpcMessageListenerContainer implements InitializingBean, Applicatio
 	}
 
 	@Override
-	public void afterPropertiesSet() throws Exception {
+	public void afterPropertiesSet() {
 		if (this.connectionFactory == null) {
 			throw new IllegalArgumentException("Property 'connectionFactory' is required");
 		}
@@ -72,13 +68,16 @@ public class RpcMessageListenerContainer implements InitializingBean, Applicatio
 		initialize();
 	}
 
-	public void initialize() throws JMSException {
+	/**
+	 * 初始化connection和consumer
+	 */
+	public void initialize() {
 		try {
 			doInitialize();
-			startSharedConnection();
 		} catch (JMSException ex) {
 			ConnectionFactoryUtils.releaseConnection(this.sharedConnection);
 			this.sharedConnection = null;
+			throw new RpcJmsException(ex);
 		}
 	}
 
@@ -95,17 +94,6 @@ public class RpcMessageListenerContainer implements InitializingBean, Applicatio
 			return;
 		}
 		initializeConsumers();
-	}
-
-	protected void establishSharedConnection() throws JMSException {
-		if (this.sharedConnection == null) {
-			this.sharedConnection = createSharedConnection();
-			LOGGER.info("Established shared JMS Connection");
-		}
-	}
-
-	protected Connection createSharedConnection() throws JMSException {
-		return getConnectionFactory().createConnection();
 	}
 
 	/**
@@ -144,30 +132,23 @@ public class RpcMessageListenerContainer implements InitializingBean, Applicatio
 		return consumer;
 	}
 
-	protected void startSharedConnection() throws JMSException {
-		if (this.sharedConnection != null) {
-			try {
-				this.sharedConnection.start();
-			} catch (javax.jms.IllegalStateException ex) {
-				LOGGER.debug("Ignoring Connection start exception - assuming already started: " + ex);
-			}
+	@Override
+	public void onException(JMSException ex) {
+		try {
+			this.sessions = null;
+			this.consumers = null;
+			refreshSharedConnection();
+			initializeConsumers();
+			LOGGER.info("Successfully refreshed JMS Connection");
+		} catch (JMSException recoverEx) {
+			LOGGER.debug("Failed to recover JMS Connection", recoverEx);
+			LOGGER.error("Encountered non-recoverable JMSException", ex);
 		}
 	}
 
-	public Connection getSharedConnection() {
-		return sharedConnection;
-	}
-
-	public void setSharedConnection(Connection sharedConnection) {
-		this.sharedConnection = sharedConnection;
-	}
-
-	public ConnectionFactory getConnectionFactory() {
-		return connectionFactory;
-	}
-
-	public void setConnectionFactory(ConnectionFactory connectionFactory) {
-		this.connectionFactory = connectionFactory;
+	@Override
+	protected void prepareSharedConnection(Connection connection) throws JMSException {
+		connection.setExceptionListener(this);
 	}
 
 	public void setConcurrentConsumers(int concurrentConsumers) {

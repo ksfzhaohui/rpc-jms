@@ -1,4 +1,4 @@
-package zh.rpc.jms.server;
+package zh.rpc.jms.server.listener;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -13,6 +13,9 @@ import javax.jms.MessageListener;
 import javax.jms.MessageProducer;
 import javax.jms.Session;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import zh.rpc.jms.common.bean.RpcRequest;
 import zh.rpc.jms.common.bean.RpcResponse;
 import zh.rpc.jms.common.util.JmsUtils;
@@ -20,10 +23,12 @@ import zh.rpc.jms.common.util.SerializationUtil;
 
 public class RpcMessageListener implements MessageListener {
 
+	private static final Logger LOGGER = LoggerFactory.getLogger(RpcMessageListener.class);
+
 	private Session session;
-	
+
 	private Executor taskExecutor;
-	
+
 	private Map<String, Object> serviceMap = new HashMap<String, Object>();
 
 	public RpcMessageListener(Session session, Executor taskExecutor, Map<String, Object> serviceMap) {
@@ -51,7 +56,7 @@ public class RpcMessageListener implements MessageListener {
 			RpcResponse rpcResponse = invokeAndCreateResult(rpcRequest);
 			writeResponseMessage(session, message, rpcResponse);
 		} catch (Throwable ex) {
-			handleListenerException(ex);
+			LOGGER.error("Execution of JMS message listener failed", ex);
 		}
 	}
 
@@ -152,10 +157,6 @@ public class RpcMessageListener implements MessageListener {
 		}
 		responeByte.setJMSCorrelationID(correlation);
 		return responeByte;
-	}
-
-	protected void handleListenerException(Throwable ex) {
-		// 待实现
 	}
 
 }
