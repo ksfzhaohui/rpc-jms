@@ -6,6 +6,7 @@ import javax.jms.MessageConsumer;
 import javax.jms.MessageProducer;
 import javax.jms.QueueBrowser;
 import javax.jms.Session;
+import javax.jms.TemporaryQueue;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -89,6 +90,18 @@ public class JmsUtils {
 				LOGGER.error("Could not close JMS QueueBrowser", ex);
 			} catch (Throwable ex) {
 				LOGGER.error("Unexpected exception on closing JMS QueueBrowser", ex);
+			}
+		}
+	}
+
+	public static void deleteTemporaryQueue(TemporaryQueue temporaryQueue) {
+		if (temporaryQueue != null) {
+			try {
+				temporaryQueue.delete();
+			} catch (JMSException ex) {
+				LOGGER.error("Could not delete JMS temporaryQueue", ex);
+			} catch (Throwable ex) {
+				LOGGER.error("Unexpected exception on delete JMS temporaryQueue", ex);
 			}
 		}
 	}
