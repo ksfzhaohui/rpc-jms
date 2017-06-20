@@ -1,8 +1,6 @@
 package zh.rpc.jms.server.listener;
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.Executor;
 
@@ -20,7 +18,7 @@ import org.springframework.context.ApplicationContext;
 
 import zh.rpc.jms.common.exception.RpcJmsException;
 import zh.rpc.jms.common.util.ConnectionFactoryUtils;
-import zh.rpc.jms.server.RpcService;
+import zh.rpc.jms.server.annotation.RpcServiceParser;
 
 public class RpcMessageListenerContainer extends AbstractListeningContainer implements ExceptionListener {
 
@@ -36,25 +34,11 @@ public class RpcMessageListenerContainer extends AbstractListeningContainer impl
 
 	private Set<MessageConsumer> consumers;
 
-	/**
-	 * 存放 服务名 与 服务对象 之间的映射关系
-	 */
-	private Map<String, Object> serviceMap = new HashMap<String, Object>();
+	private RpcServiceParser rpcServiceParser = new RpcServiceParser();
 
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-		Map<String, Object> serviceBeanMap = applicationContext.getBeansWithAnnotation(RpcService.class);
-		if (serviceBeanMap != null && serviceBeanMap.size() > 0) {
-			for (Object serviceBean : serviceBeanMap.values()) {
-				RpcService rpcService = serviceBean.getClass().getAnnotation(RpcService.class);
-				String serviceName = rpcService.value().getName();
-				String serviceVersion = rpcService.version();
-				if (serviceVersion != null && !serviceVersion.equals("")) {
-					serviceName += "-" + serviceVersion;
-				}
-				serviceMap.put(serviceName, serviceBean);
-			}
-		}
+		rpcServiceParser.parserRpcServices(applicationContext);
 	}
 
 	@Override
@@ -128,7 +112,7 @@ public class RpcMessageListenerContainer extends AbstractListeningContainer impl
 	 */
 	protected MessageConsumer createListenerConsumer(final Session session) throws JMSException {
 		MessageConsumer consumer = session.createConsumer(destination);
-		consumer.setMessageListener(new RpcMessageListener(session, taskExecutor, serviceMap));
+		consumer.setMessageListener(new RpcMessageListener(session, taskExecutor, rpcServiceParser));
 		return consumer;
 	}
 

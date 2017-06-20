@@ -24,6 +24,21 @@ public class RpcProxyBean extends JmsInvoker implements FactoryBean<Object> {
 		serviceProxy = new ProxyFactory(this).getProxy();
 	}
 
+	@Override
+	public Object getObject() {
+		return this.serviceProxy;
+	}
+
+	@Override
+	public Class<?> getObjectType() {
+		return this.serviceInterface;
+	}
+
+	@Override
+	public boolean isSingleton() {
+		return true;
+	}
+
 	public Class<?> getServiceInterface() {
 		return serviceInterface;
 	}
@@ -44,15 +59,4 @@ public class RpcProxyBean extends JmsInvoker implements FactoryBean<Object> {
 		this.serviceVesion = serviceVesion;
 	}
 
-	public Object getObject() {
-		return this.serviceProxy;
-	}
-
-	public Class<?> getObjectType() {
-		return this.serviceInterface;
-	}
-
-	public boolean isSingleton() {
-		return true;
-	}
 }

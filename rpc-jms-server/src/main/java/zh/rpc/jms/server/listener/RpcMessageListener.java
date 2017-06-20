@@ -2,8 +2,6 @@ package zh.rpc.jms.server.listener;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.Executor;
 
 import javax.jms.BytesMessage;
@@ -20,6 +18,7 @@ import zh.rpc.jms.common.bean.RpcRequest;
 import zh.rpc.jms.common.bean.RpcResponse;
 import zh.rpc.jms.common.util.JmsUtils;
 import zh.rpc.jms.common.util.SerializationUtil;
+import zh.rpc.jms.server.annotation.RpcServiceParser;
 
 public class RpcMessageListener implements MessageListener {
 
@@ -29,12 +28,12 @@ public class RpcMessageListener implements MessageListener {
 
 	private Executor taskExecutor;
 
-	private Map<String, Object> serviceMap = new HashMap<String, Object>();
+	private RpcServiceParser rpcServiceParser;
 
-	public RpcMessageListener(Session session, Executor taskExecutor, Map<String, Object> serviceMap) {
+	public RpcMessageListener(Session session, Executor taskExecutor, RpcServiceParser rpcServiceParser) {
 		this.session = session;
 		this.taskExecutor = taskExecutor;
-		this.serviceMap = serviceMap;
+		this.rpcServiceParser = rpcServiceParser;
 	}
 
 	@Override
@@ -105,10 +104,7 @@ public class RpcMessageListener implements MessageListener {
 			IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		String serviceName = rpcRequest.getInterfaceName();
 		String serviceVersion = rpcRequest.getServiceVersion();
-		if (serviceVersion != null && !serviceVersion.equals("")) {
-			serviceName += "-" + serviceVersion;
-		}
-		Object serviceBean = serviceMap.get(serviceName);
+		Object serviceBean = rpcServiceParser.getService(serviceName, serviceVersion);
 		if (serviceBean == null) {
 			throw new RuntimeException(String.format("can not find service bean by key: %s", serviceName));
 		}

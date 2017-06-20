@@ -1,6 +1,6 @@
 package zh.rpc.jms.test.server.impl;
 
-import zh.rpc.jms.server.RpcService;
+import zh.rpc.jms.server.annotation.RpcService;
 import zh.rpc.jms.test.api.IHelloService;
 import zh.rpc.jms.test.api.Person;
 

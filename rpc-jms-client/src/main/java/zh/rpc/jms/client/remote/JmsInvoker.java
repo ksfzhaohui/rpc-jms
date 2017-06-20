@@ -25,6 +25,7 @@ public class JmsInvoker implements IRemoteInvoker, InitializingBean {
 
 	private Queue queue;
 
+	// 接受数据超时时间 默认为0
 	private long receiveTimeout = 0;
 
 	@Override
@@ -56,7 +57,10 @@ public class JmsInvoker implements IRemoteInvoker, InitializingBean {
 			throw new IllegalArgumentException("Property 'connectionFactory' is required");
 		}
 		if (this.queue == null) {
-			throw new IllegalArgumentException("'queue' or 'queueName' is required");
+			throw new IllegalArgumentException("Property 'queue' is required");
+		}
+		if (this.receiveTimeout < 0) {
+			throw new IllegalArgumentException("Property 'receiveTimeout' Not less than '0'");
 		}
 	}
 
@@ -123,9 +127,7 @@ public class JmsInvoker implements IRemoteInvoker, InitializingBean {
 		} finally {
 			JmsUtils.closeMessageConsumer(consumer);
 			JmsUtils.closeMessageProducer(producer);
-			if (responseQueue != null) {
-				responseQueue.delete();
-			}
+			JmsUtils.deleteTemporaryQueue(responseQueue);
 		}
 	}
 
