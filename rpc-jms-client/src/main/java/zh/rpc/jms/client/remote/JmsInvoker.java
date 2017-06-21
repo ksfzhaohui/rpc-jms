@@ -28,6 +28,9 @@ public class JmsInvoker implements IRemoteInvoker, InitializingBean {
 	// 接受数据超时时间 默认为0
 	private long receiveTimeout = 0;
 
+	// 消息优先级 默认为4
+	private int priority = 4;
+
 	@Override
 	public Object invoke(RpcRequest request) throws Throwable {
 		Connection con = createConnection();
@@ -61,6 +64,9 @@ public class JmsInvoker implements IRemoteInvoker, InitializingBean {
 		}
 		if (this.receiveTimeout < 0) {
 			throw new IllegalArgumentException("Property 'receiveTimeout' Not less than '0'");
+		}
+		if (this.priority < 0) {
+			throw new IllegalArgumentException("Property 'priority' Not less than '0'");
 		}
 	}
 
@@ -120,6 +126,7 @@ public class JmsInvoker implements IRemoteInvoker, InitializingBean {
 			producer = session.createProducer(queue);
 			consumer = session.createConsumer(responseQueue);
 			requestMessage.setJMSReplyTo(responseQueue);
+			requestMessage.setJMSPriority(priority);
 			producer.send(requestMessage);
 
 			long timeout = getReceiveTimeout();
@@ -153,6 +160,14 @@ public class JmsInvoker implements IRemoteInvoker, InitializingBean {
 
 	public void setReceiveTimeout(long receiveTimeout) {
 		this.receiveTimeout = receiveTimeout;
+	}
+
+	public int getPriority() {
+		return priority;
+	}
+
+	public void setPriority(int priority) {
+		this.priority = priority;
 	}
 
 }
