@@ -1,6 +1,5 @@
 package zh.rpc.jms.client.remote;
 
-import javax.jms.BytesMessage;
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.JMSException;
@@ -15,6 +14,8 @@ import org.springframework.beans.factory.InitializingBean;
 
 import zh.rpc.jms.common.bean.RpcRequest;
 import zh.rpc.jms.common.bean.RpcResponse;
+import zh.rpc.jms.common.converter.DefaultMessageConverter;
+import zh.rpc.jms.common.converter.MessageConverter;
 import zh.rpc.jms.common.util.ConnectionFactoryUtils;
 import zh.rpc.jms.common.util.JmsUtils;
 import zh.rpc.jms.common.util.SerializationUtil;
@@ -31,16 +32,20 @@ public class JmsInvoker implements IRemoteInvoker, InitializingBean {
 	// 消息优先级 默认为4
 	private int priority = 4;
 
+	// 消息转换器
+	private MessageConverter messageConverter = new DefaultMessageConverter();
+
 	@Override
 	public Object invoke(RpcRequest request) throws Throwable {
 		Connection con = createConnection();
 		Session session = null;
 		try {
 			session = createSession(con);
-			Message requestMessage = createRequestMessage(session, request);
+			Message requestMessage = messageConverter.toMessage(SerializationUtil.serialize(request), session);
 			con.start();
 			Message responseMessage = doExecuteRequest(session, queue, requestMessage);
-			RpcResponse rpcResponse = extractInvocationResult(responseMessage);
+			RpcResponse rpcResponse = SerializationUtil
+					.deserialize((byte[]) messageConverter.fromMessage(responseMessage), RpcResponse.class);
 			if (rpcResponse.hasException()) {
 				throw rpcResponse.getException();
 			} else {
@@ -77,35 +82,6 @@ public class JmsInvoker implements IRemoteInvoker, InitializingBean {
 
 	protected Session createSession(Connection con) throws JMSException {
 		return con.createSession(false, Session.AUTO_ACKNOWLEDGE);
-	}
-
-	/**
-	 * 序列化RpcRequest为Message
-	 * 
-	 * @param session
-	 * @param request
-	 * @return
-	 * @throws JMSException
-	 */
-	protected Message createRequestMessage(Session session, RpcRequest request) throws JMSException {
-		BytesMessage requestMessage = session.createBytesMessage();
-		requestMessage.writeBytes(SerializationUtil.serialize(request));
-		return requestMessage;
-	}
-
-	/**
-	 * 反序列化Message为RpcResponse
-	 * 
-	 * @param responseMessage
-	 * @return
-	 * @throws JMSException
-	 */
-	protected RpcResponse extractInvocationResult(Message responseMessage) throws JMSException {
-		BytesMessage bytesMessage = (BytesMessage) responseMessage;
-		byte messByte[] = new byte[(int) bytesMessage.getBodyLength()];
-		bytesMessage.readBytes(messByte);
-		RpcResponse rpcResponse = SerializationUtil.deserialize(messByte, RpcResponse.class);
-		return rpcResponse;
 	}
 
 	/**
