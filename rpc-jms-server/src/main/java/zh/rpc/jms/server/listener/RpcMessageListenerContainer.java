@@ -16,6 +16,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 
+import zh.rpc.jms.common.converter.DefaultMessageConverter;
+import zh.rpc.jms.common.converter.MessageConverter;
 import zh.rpc.jms.common.exception.RpcJmsException;
 import zh.rpc.jms.common.util.ConnectionFactoryUtils;
 import zh.rpc.jms.server.annotation.RpcServiceParser;
@@ -26,6 +28,7 @@ public class RpcMessageListenerContainer extends AbstractListeningContainer impl
 
 	private Queue destination;
 
+	// 消费端并发数量 默认：1
 	private int concurrentConsumers = 1;
 
 	private Executor taskExecutor;
@@ -35,6 +38,8 @@ public class RpcMessageListenerContainer extends AbstractListeningContainer impl
 	private Set<MessageConsumer> consumers;
 
 	private RpcServiceParser rpcServiceParser = new RpcServiceParser();
+
+	private MessageConverter messageConverter = new DefaultMessageConverter();
 
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
@@ -112,7 +117,7 @@ public class RpcMessageListenerContainer extends AbstractListeningContainer impl
 	 */
 	protected MessageConsumer createListenerConsumer(final Session session) throws JMSException {
 		MessageConsumer consumer = session.createConsumer(destination);
-		consumer.setMessageListener(new RpcMessageListener(session, taskExecutor, rpcServiceParser));
+		consumer.setMessageListener(new RpcMessageListener(session, taskExecutor, messageConverter, rpcServiceParser));
 		return consumer;
 	}
 

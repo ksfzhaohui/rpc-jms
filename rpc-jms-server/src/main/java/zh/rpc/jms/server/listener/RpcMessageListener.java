@@ -4,7 +4,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.concurrent.Executor;
 
-import javax.jms.BytesMessage;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
@@ -16,6 +15,7 @@ import org.slf4j.LoggerFactory;
 
 import zh.rpc.jms.common.bean.RpcRequest;
 import zh.rpc.jms.common.bean.RpcResponse;
+import zh.rpc.jms.common.converter.MessageConverter;
 import zh.rpc.jms.common.util.JmsUtils;
 import zh.rpc.jms.common.util.SerializationUtil;
 import zh.rpc.jms.server.annotation.RpcServiceParser;
@@ -30,9 +30,13 @@ public class RpcMessageListener implements MessageListener {
 
 	private RpcServiceParser rpcServiceParser;
 
-	public RpcMessageListener(Session session, Executor taskExecutor, RpcServiceParser rpcServiceParser) {
+	private MessageConverter messageConverter;
+
+	public RpcMessageListener(Session session, Executor taskExecutor, MessageConverter messageConverter,
+			RpcServiceParser rpcServiceParser) {
 		this.session = session;
 		this.taskExecutor = taskExecutor;
+		this.messageConverter = messageConverter;
 		this.rpcServiceParser = rpcServiceParser;
 	}
 
@@ -127,9 +131,7 @@ public class RpcMessageListener implements MessageListener {
 	 * @throws JMSException
 	 */
 	private RpcRequest getRpcRequest(Message message) throws JMSException {
-		BytesMessage byteMessage = (BytesMessage) message;
-		byte messByte[] = new byte[(int) byteMessage.getBodyLength()];
-		byteMessage.readBytes(messByte);
+		byte messByte[] = (byte[]) messageConverter.fromMessage(message);
 		RpcRequest rpcRequest = SerializationUtil.deserialize(messByte, RpcRequest.class);
 		return rpcRequest;
 	}
@@ -145,14 +147,13 @@ public class RpcMessageListener implements MessageListener {
 	 */
 	private Message createResponseMessage(Session session, Message requestMessage, RpcResponse rpcResponse)
 			throws JMSException {
-		BytesMessage responeByte = session.createBytesMessage();
-		responeByte.writeBytes(SerializationUtil.serialize(rpcResponse));
+		Message responseMessage = messageConverter.toMessage(SerializationUtil.serialize(rpcResponse), session);
 		String correlation = requestMessage.getJMSCorrelationID();
 		if (correlation == null) {
 			correlation = requestMessage.getJMSMessageID();
 		}
-		responeByte.setJMSCorrelationID(correlation);
-		return responeByte;
+		responseMessage.setJMSCorrelationID(correlation);
+		return responseMessage;
 	}
 
 }
